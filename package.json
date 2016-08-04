@@ -1,0 +1,32 @@
+﻿{
+  "name": "my_nodejs_practice",
+  "version": "0.0.1",
+  "description": "学习前端过程做的练习，利用Nodejs+Express+Angularjs+Bootstrap",
+  "main": "app.js",
+  "engines": {
+    "node": "4.4.6",
+    "npm": "3.6.0"
+  },
+  "dependencies": {
+    "express": "^4.14.0",
+    "express-session": "^1.14.0",
+    "formidable": "^1.0.17",
+    "mongodb": "^2.2.4",
+    "silly-datetime": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangqingqiang/MyNodeWeb.git"
+  },
+  "author": "wangqingqiang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/wangqingqiang/MyNodeWeb/issues"
+  },
+  "homepage": "https://github.com/wangqingqiang/MyNodeWeb#readme"
+}

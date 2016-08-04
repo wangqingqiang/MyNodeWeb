@@ -1,0 +1,10 @@
+# $ git rm -r --cached dir
+# $ echo dir/ >> .gitignore
+# $ git add .gitignore
+# $ git commit -am 'ignore dir forever'
+
+node_modules/
+
+.idea/
+
+upload/.temp/
