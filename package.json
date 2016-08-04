@@ -1,4 +1,4 @@
-﻿{
+{
   "name": "my_nodejs_practice",
   "version": "0.0.1",
   "description": "学习前端过程做的练习，利用Nodejs+Express+Angularjs+Bootstrap",
@@ -8,6 +8,7 @@
     "npm": "3.6.0"
   },
   "dependencies": {
+    "ejs": "^2.5.1",
     "express": "^4.14.0",
     "express-session": "^1.14.0",
     "formidable": "^1.0.17",
