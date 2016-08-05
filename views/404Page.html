@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="zh-cn" ng-app="myApp">
+<html lang="zh-cn">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -54,18 +54,15 @@
     </div>
 </nav>
 
-<div ui-view="main"></div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12">
+            <img src="/static/resource/imgs/404/404.jpg" />
+        </div>
+    </div>
+</div>
 
-<!--<script src="/static/node_modules/jquery/dist/jquery.min.js"></script>-->
-<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="/static/node_modules/jquery/dist/jquery.min.js"></script>
 <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-<script src="/static/node_modules/angular/angular.min.js"></script>
-<script src="/static/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
-
-<script src="/static/service/photosService.js"></script>
-<script src="/static/controller/photosController.js"></script>
-<script src="/static/routers/photosRouter.js"></script>
-<script src="/static/routers/router.js"></script>
-<script src="/static/app.js"></script>
 </body>
 </html>

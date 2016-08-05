@@ -3,7 +3,7 @@
  */
 var express=require('express');
 var ejs=require('ejs');
-var router=require('./routes/router.js');
+var router=require('./routers/router.js');
 var app=express();
 
 app.set('views','./views');
