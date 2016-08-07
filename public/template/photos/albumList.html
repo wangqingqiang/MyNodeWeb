@@ -1,7 +1,7 @@
 <div class="row">
     <div ng-repeat="album in albums">
         <div class="col-xs-6 col-md-3">
-            <a ui-sref="^.detail" class="thumbnail">
+            <a  ui-sref=".detail({albumName:album})" class="thumbnail">
                 <img src="/static/resource/imgs/photos/ico.jpg" alt="{{album}}">
             </a>
             {{album}}

@@ -2,6 +2,19 @@
  * Created by wqq on 2016/8/5.
  */
 var photoModule = angular.module('app.photos.controller', ['app.photos.service'])
-    .controller('photosController',['$scope', 'photosService', function ($scope, photosService) {
-        photosService.getAllAlbums($scope);
+    .controller('photosListController', ['$scope','albumsObj', function ($scope, albumsObj) {
+        $scope.albums = albumsObj.data;
+    }])
+    .controller('photosDetailController', ['$scope', '$stateParams', '$state', 'photosObj', function ($scope, $stateParams, $state, photosObj) {
+        $scope.photos = photosObj.data;
+        $scope.albumName=$stateParams.albumName;
+        if($scope.photos.length<=0){
+            $state.go('photos.404NotFound',{albumName:$scope.albumName})
+        }
+    }])
+    .controller('photosUpdateController', ['$scope','albumsObj', function ($scope, albumsObj) {
+        $scope.albums = albumsObj.data;
+        $scope.submit=function(){
+
+        }
     }])
