@@ -1,10 +1,10 @@
 /**
  * Created by Administrator on 2016/8/8 0008.
  */
-var photoModule = angular.module('app.job.controller', ['app.job.service'])
-    .controller('jobController', ['$scope','jobService','$http', function ($scope,jobService,$http) {
-        $scope.citys=jobService.getCitys();
-        $scope.salarys=jobService.getSalary();
+;angular.module('app.job.controller', ['app.job.service'])
+    .controller('jobController', ['$scope', 'jobService', '$http', function ($scope, jobService, $http) {
+        $scope.citys = jobService.getCitys();
+        $scope.salarys = jobService.getSalary();
 
         $scope.jobs = [];
 
@@ -33,11 +33,11 @@ var photoModule = angular.module('app.job.controller', ['app.job.service'])
                 }
             )
         }
-        $scope.keyup=function(event){
-            event=event||window.event;
-            var keycode=event.keyCode;
+        $scope.keyup = function (event) {
+            event = event || window.event;
+            var keycode = event.keyCode;
             console.log(keycode);
-            if(keycode===13){
+            if (keycode === 13) {
                 $scope.jobSearch(1);
             }
         }

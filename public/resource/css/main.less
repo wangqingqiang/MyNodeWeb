@@ -1,0 +1,121 @@
+.sign {
+  margin-top: 100px;
+  border: 1px solid hsl(204, 34%, 58%);
+  padding: 15px 40px;
+  padding-bottom: 50px;
+  border-radius: 6px;
+  .content {
+    padding: 15px;
+  }
+  .right {
+    padding-top: 40px;
+  }
+
+  .left {
+    padding-top: 15px;
+    background: url("/static/resource/imgs/job/reg_vline.png") no-repeat scroll 100% 0;
+  }
+}
+
+.job {
+  font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;
+  font-size: 16px;
+  a, a:hover {
+    text-decoration: none;
+  }
+
+  input[type=text] {
+    box-sizing: content-box;
+    display: inline-block;
+    margin-right: 30px;
+    padding: 13px 15px;
+    width: 620px;
+    height: 18px;
+    line-height: 18px;
+    /*border-color: hsl(0, 100%, 100%);*/
+    border-radius: 2px;
+    border-style: none;
+  }
+  input[type=text]::selection {
+    border-color: red;
+  }
+  .search-bar {
+    padding: 20px 20px;
+    background-color: hsl(168, 14%, 93%);
+    font-size: 12px;
+  }
+  .search-bar label {
+    padding-right: 0 !important;
+    width: 55px;
+  }
+  #submit {
+    padding: 12px 50px;
+    background-color: hsl(166, 100%, 35%);
+    color: hsl(0, 100%, 100%);
+    border-radius: 3px;
+    border: 2px solid hsla(0, 0%, 0%, 0);
+  }
+  form {
+    margin-top: 10px;
+  }
+  .joblist li {
+    list-style: none;
+    border: 1px solid #e8e8e8;
+    margin-top: 20px;
+    padding: 0 20px;
+  }
+  .joblist .top .t, .joblist a {
+    color: #00b38a;
+  }
+  .clearfix:after {
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    clear: both;
+  }
+  .joblist .h, .joblist .position {
+    float: left;;
+    line-height: 100%;
+  }
+
+  span {
+    margin: 5px;
+    font-size: 14px;
+  }
+  .joblist .logo, .joblist .company {
+    margin-left: 20px;
+    float: right;
+  }
+  .joblist .company {
+    margin-right: 15px;
+  }
+  .joblist .logo img {
+    border: 1px solid #dcdcdc;
+    width: 60px;
+    height: 60px;
+  }
+  .joblist .bottom {
+    background-color: #fafafa;
+    height: 40px;
+    line-height: 40px;
+  }
+  .joblist .left {
+    float: left;
+  }
+  .joblist .right {
+    float: right;
+    margin-right: 35px;
+  }
+  .joblist .bottom .right span {
+    border: 1px solid #dcdcdc;
+    margin-right: 10px;
+    padding: 0 5px;
+    font-size: 12px;
+  }
+  #money {
+    font-size: 18px;
+    color: red;
+  }
+
+}

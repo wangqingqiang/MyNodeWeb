@@ -2,7 +2,6 @@
  * Created by wqq on 2016/8/5.
  */
 var photosModel=require('../models/photos.js');
-var formidable=require('formidable');
 
 function getAllAlbums(req,res,next){
     photosModel.getAllAlbums(function(error,albums){

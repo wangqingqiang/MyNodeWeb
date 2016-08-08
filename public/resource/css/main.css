@@ -1,0 +1,120 @@
+.sign {
+  margin-top: 100px;
+  border: 1px solid #6f9bb8;
+  padding: 15px 40px;
+  padding-bottom: 50px;
+  border-radius: 6px;
+}
+.sign .content {
+  padding: 15px;
+}
+.sign .right {
+  padding-top: 40px;
+}
+.sign .left {
+  padding-top: 15px;
+  background: url("/static/resource/imgs/job/reg_vline.png") no-repeat scroll 100% 0;
+}
+.job {
+  font-family: "Hiragino Sans GB", "Microsoft Yahei", SimSun, Arial, "Helvetica Neue", Helvetica;
+  font-size: 16px;
+}
+.job a,
+.job a:hover {
+  text-decoration: none;
+}
+.job input[type=text] {
+  box-sizing: content-box;
+  display: inline-block;
+  margin-right: 30px;
+  padding: 13px 15px;
+  width: 620px;
+  height: 18px;
+  line-height: 18px;
+  /*border-color: hsl(0, 100%, 100%);*/
+  border-radius: 2px;
+  border-style: none;
+}
+.job input[type=text]::selection {
+  border-color: red;
+}
+.job .search-bar {
+  padding: 20px 20px;
+  background-color: #ebf0ef;
+  font-size: 12px;
+}
+.job .search-bar label {
+  padding-right: 0 !important;
+  width: 55px;
+}
+.job #submit {
+  padding: 12px 50px;
+  background-color: #00b389;
+  color: #ffffff;
+  border-radius: 3px;
+  border: 2px solid rgba(0, 0, 0, 0);
+}
+.job form {
+  margin-top: 10px;
+}
+.job .joblist li {
+  list-style: none;
+  border: 1px solid #e8e8e8;
+  margin-top: 20px;
+  padding: 0 20px;
+}
+.job .joblist .top .t,
+.job .joblist a {
+  color: #00b38a;
+}
+.job .clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  visibility: hidden;
+  clear: both;
+}
+.job .joblist .h,
+.job .joblist .position {
+  float: left;
+  line-height: 100%;
+}
+.job span {
+  margin: 5px;
+  font-size: 14px;
+}
+.job .joblist .logo,
+.job .joblist .company {
+  margin-left: 20px;
+  float: right;
+}
+.job .joblist .company {
+  margin-right: 15px;
+}
+.job .joblist .logo img {
+  border: 1px solid #dcdcdc;
+  width: 60px;
+  height: 60px;
+}
+.job .joblist .bottom {
+  background-color: #fafafa;
+  height: 40px;
+  line-height: 40px;
+}
+.job .joblist .left {
+  float: left;
+}
+.job .joblist .right {
+  float: right;
+  margin-right: 35px;
+}
+.job .joblist .bottom .right span {
+  border: 1px solid #dcdcdc;
+  margin-right: 10px;
+  padding: 0 5px;
+  font-size: 12px;
+}
+.job #money {
+  font-size: 18px;
+  color: red;
+}

@@ -1,7 +1,7 @@
 /**
  * Created by wqq on 2016/8/5.
  */
-var photoModule = angular.module('app.photos.router', ['ui.router', 'app.photos.controller', 'app.photos.service']);
+;var photoModule = angular.module('app.photos.router', ['ui.router', 'app.photos.controller', 'app.photos.service']);
 photoModule.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
     $stateProvider
         .state('photos', {
@@ -63,4 +63,4 @@ photoModule.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
             }
         })
 
-}])
+}]);
