@@ -14,13 +14,18 @@
                     }
                 }
             })
-            .state('404', {
-                url: '/404NotFound',
+            .state('404page', {
                 views: {
                     'main': {
-                        template: '这是404页面'
+                        templateUrl: '/static/template/404Page.html',
                     }
                 }
             })
-
+            .state('500page',{
+                views:{
+                    'main':{
+                        templateUrl: '/static/template/500Page.html',
+                    }
+                }
+            })
     }])
