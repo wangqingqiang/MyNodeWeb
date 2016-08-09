@@ -3,10 +3,6 @@
  */
 ;angular.module('app.Controller', ['ngCookies'])
     .controller('indexController', ['$scope', '$cookieStore','$cookies', function ($scope, $cookieStore,$cookies) {
-        console.log('akga')
-        $scope.username =$cookies.get('connect.sid');
-        console.log($cookies);
-        console.log($cookieStore);
-
+        $scope.username =$cookies.get('username');
         console.log($scope.username)
     }]);
