@@ -19,7 +19,6 @@ function checkIsSignin(req, res, next) {
         req.session.username = username;
         req.session.cookie.expires = new Date(Date.now() + hour);
         req.session.cookie.maxAge = hour;
-        req.session.cookie.path = '/';
 
         res.json({result: 'success'});
     } else {
@@ -133,9 +132,23 @@ function signUp(req, res, next) {
         }
     })
 }
+//退出
+function signOut(req,res,next){
+    var hour=-100000000;
+    req.session.username='';
+    req.session.cookie.expires = new Date(Date.now() - hour);
+    req.session.cookie.maxAge = hour;
+    res.cookie('username', '', {
+        expires: new Date(Date.now() + hour),
+        maxAge: hour,
+        path: '/'
+    });
+    res.end();
+}
 
 module.exports = {
     checkIsSignin,
     signIn,
-    signUp
+    signUp,
+    signOut
 }

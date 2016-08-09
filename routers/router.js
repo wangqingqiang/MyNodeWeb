@@ -17,6 +17,7 @@ function router(app){
     app.get('/checkIsSignin',signRouter.checkIsSignin);
     app.post('/signIn',signRouter.signIn);
     app.post('/signUp',signRouter.signUp);
+    app.post('/signOut',signRouter.signOut)
 
     //相册模块路由
     app.get('/getAlbums',photosRouter.getAllAlbums);
