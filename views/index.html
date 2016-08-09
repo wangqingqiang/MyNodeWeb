@@ -52,7 +52,14 @@
                 </li>
                 <li><a href="#">关于小弋</a></li>
                 <li><a href="#">联系我们</a></li>
-                <li><a href="#">{{username}}</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="isSignin">
+                <p class="navbar-text">欢迎您，{{username}}</p>
+                <li><a href="#" ng-click="signOut()">退出</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right" ng-show="!isSignin">
+                <li><a ui-sref="sign">亲，请登录</a></li>
+                <li><a ui-sref="sign({sign_up:true})">先注册</a></li>
             </ul>
         </div>
     </div>

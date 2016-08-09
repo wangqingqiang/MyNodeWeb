@@ -1,13 +1,22 @@
 /**
  * Created by wqq on 2016/8/8.
  */
-;angular.module('app.sign.controller', [])
-    .controller('signController', ['$scope', '$state', '$http','checkSignin', function ($scope, $state, $http,checkSignin) {
-        if (checkSignin && checkSignin.data && checkSignin.data.result == 'success') {
-            $state.go('index');
-        }
+;angular.module('app.sign.controller', ['ngCookies'])
+    .controller('signController', ['$rootScope','$scope', '$state','$stateParams', '$http','checkSignin','$cookies', function ($rootScope,$scope, $state,$stateParams, $http,checkSignin,$cookies) {
         $scope.sign_in = true;
         $scope.sign_up = false;
+
+        if($stateParams.sign_up){
+            $scope.sign_in = false;
+            $scope.sign_up = true;
+        }
+        if (checkSignin && checkSignin.data && checkSignin.data.result == 'success') {
+            $state.go('index');
+        }else {
+            $rootScope.isSignin=false;
+            $rootScope.username =$cookies.get('username');
+
+        }
         $scope.signIn = function () {
             $scope.sign_in = true;
             $scope.sign_up = false;
@@ -37,6 +46,9 @@
             })
                 .success(function (data) {
                     if (data.result == 'success') {
+                        $rootScope.isSignin=true;
+                        $rootScope.username =$cookies.get('username');
+
                         $state.go('index');
                     } else {
                         if (data.error_type == 0) {
@@ -54,6 +66,7 @@
                 })
         };
         $scope.doSignUp = function () {
+
             var username = $scope.formData.sign_up_username,
                 password = $scope.formData.sign_up_password,
                 repeatPassword = $scope.formData.sign_up_repeatPassword;
@@ -76,6 +89,9 @@
             })
                 .success(function (data) {
                     if (data.result == 'success') {
+                        $rootScope.isSignin=true;
+                        $rootScope.username =$cookies.get('username');
+
                         $state.go('index');
                     } else {
                         if (data.error_type == 0) {

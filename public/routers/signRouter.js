@@ -5,7 +5,7 @@
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
         $stateProvider
             .state('sign', {
-                url: '/sign',
+                url: '/sign?:sign_up',
                 resolve: {
                     httpService: 'signService',
                     checkSignin: ['httpService', function (httpService) {
