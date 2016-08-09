@@ -5,6 +5,9 @@
   padding-bottom: 50px;
   border-radius: 6px;
 }
+.sign .title {
+  border-bottom: 1px solid #ededed;
+}
 .sign .content {
   padding: 15px;
 }

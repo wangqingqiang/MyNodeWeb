@@ -14,6 +14,7 @@ function router(app){
     app.get('/favicon.ico',commonRouter.showIco);
 
     //登录注册路由
+    app.get('/checkIsSignin',signRouter.checkIsSignin);
     app.post('/signIn',signRouter.signIn);
     app.post('/signUp',signRouter.signUp);
 

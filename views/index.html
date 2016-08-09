@@ -22,7 +22,7 @@
         .copyright { text-align:center;}
     </style>
 </head>
-<body>
+<body ng-controller="indexController">
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
         <div class="navbar-header">
@@ -52,6 +52,7 @@
                 </li>
                 <li><a href="#">关于小弋</a></li>
                 <li><a href="#">联系我们</a></li>
+                <li><a href="#">{{username}}</a></li>
             </ul>
         </div>
     </div>
@@ -64,7 +65,9 @@
 <script src="/static/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="/static/node_modules/angular/angular.min.js"></script>
 <script src="/static/node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+<script src="/static/node_modules/angular-cookies/angular-cookies.min.js"></script>
 
+<script src="/static/controller/controller.js"></script>
 <script src="/static/service/photosService.js"></script>
 <script src="/static/controller/photosController.js"></script>
 <script src="/static/routers/photosRouter.js"></script>
@@ -73,6 +76,7 @@
 <script src="/static/controller/jobController.js"></script>
 <script src="/static/routers/jobRouter.js"></script>
 
+<script src="/static/service/service.js"></script>
 <script src="/static/controller/signController.js"></script>
 <script src="/static/routers/signRouter.js"></script>
 

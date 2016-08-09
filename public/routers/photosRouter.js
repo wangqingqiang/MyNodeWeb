@@ -54,13 +54,13 @@ photoModule.config(['$stateProvider', '$urlRouterProvider', function ($stateProv
                 }
             }
         })
-        .state('photos.404NotFound', {
-            url: '/:albumName',
-            views: {
-                'main': {
-                    templateUrl: '/static/template/404Page.html',
-                }
-            }
-        })
+        //.state('photos.404NotFound', {
+        //    url: '/:albumName',
+        //    views: {
+        //        'main': {
+        //            templateUrl: '/static/template/404Page.html',
+        //        }
+        //    }
+        //})
 
 }]);

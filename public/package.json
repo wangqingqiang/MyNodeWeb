@@ -5,6 +5,7 @@
   "main": "route.js",
   "dependencies": {
     "angular": "^1.5.8",
+    "angular-cookies": "^1.5.8",
     "angular-ui-router": "^0.3.1",
     "bootstrap": "^3.3.7",
     "jquery": "^3.1.0"

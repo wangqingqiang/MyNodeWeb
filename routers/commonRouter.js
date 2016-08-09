@@ -7,10 +7,12 @@ function showIco(req,res,next){
 function showIndexPage(req, res, next) {
     res.render('index');
 }
+
 function show404Page(req,res,next){
     res.status(404);
     res.render('404Page');
 }
+
 
 module.exports = {
     showIco,

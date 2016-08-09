@@ -4,7 +4,14 @@
 var express=require('express');
 var ejs=require('ejs');
 var router=require('./routers/router.js');
+var session=require('express-session');
 var app=express();
+
+app.use(session({
+    secret: 'keyboard cat',
+    resave: false,
+    saveUninitialized: true
+}))
 
 app.set('views','./views');
 app.engine('.html', ejs.__express);

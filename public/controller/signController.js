@@ -2,86 +2,38 @@
  * Created by wqq on 2016/8/8.
  */
 ;angular.module('app.sign.controller', [])
-    .controller('signController', ['$scope', '$state', '$http', function ($scope, $state, $http) {
+    .controller('signController', ['$scope', '$state', '$http','checkSignin', function ($scope, $state, $http,checkSignin) {
+        if (checkSignin && checkSignin.data && checkSignin.data.result == 'success') {
+            $state.go('index');
+        }
         $scope.sign_in = true;
         $scope.sign_up = false;
         $scope.signIn = function () {
             $scope.sign_in = true;
             $scope.sign_up = false;
+            $scope.formData = {};
+            $scope.formChange();
         }
         $scope.signUp = function () {
             $scope.sign_in = false;
             $scope.sign_up = true;
+            $scope.formData = {};
+            $scope.formChange();
+
         }
-/*        $scope.doSignIn = function () {
-            var username = $('#sign_in_username').val();
-            var password = $('#sign_in_password').val()
-            if (!username || !password) {
-                alert('用户名或密码不能为空！');
-                return false;
-            }
-            $.ajax({
-                method: 'POST',
-                url: '/SignIn',
-                data: {'username': username, 'password': password},
-                success: function (data) {
-                    if (data.result == 'success') {
-                        $state.go('index');
-                    } else {
-                        if (data.error_type == 0) {
-                            alert('500:sorry，系统错误！');
-                        } else if (data.error_type == 1) {
-                            alert('用户名或密码错误！')
-                        }
-                    }
-                },
-                error: function (error) {
-                    console.log(error);
-                    alert('500:sorry，系统错误！');
-                }
-            })
-        }
-        $scope.doSignUp = function () {
-            var username = $('#sign_up_username').val();
-            var password = $('#sign_up_password').val()
-            var repeatPassword = $('#sign_up_repeatPassword').val()
-            if (!username || !password) {
-                alert('用户名或密码不能为空！');
-                return false;
-            }
-            if (repeatPassword != password) {
-                alert('两次密码必须一致！');
-                return false;
-            }
-            $.ajax({
-                method: 'POST',
-                url: '/SignUp',
-                data: {'username': username, 'password': password},
-                success: function (data) {
-                    if (data.result == 'success') {
-                        $state.go('index');
-                    } else {
-                        if (data.error_type == 0) {
-                            alert('500:sorry，系统错误！');
-                        } else if (data.error_type == 1) {
-                            alert('用户名或密码不能为空！')
-                        } else if (data.error_type == 2) {
-                            alert('用户名已存在！')
-                        }
-                    }
-                },
-                error: function (error) {
-                    console.log(error);
-                }
-            })
-        }*/
 
         $scope.formData = {};
         $scope.doSignIn = function () {
+            var username = $scope.formData.sign_in_username,
+                password = $scope.formData.sign_in_password;
+            if (!username || !password) {
+                $scope.sign_in_errorMsg = '用户名或密码不能为空！';
+                return;
+            }
             $http({
                 method: 'POST',
                 url: '/SignIn',
-                data: {'username': $scope.formData.sign_in_username, 'password': $scope.formData.sign_in_password}
+                data: {'username': username, 'password': password}
             })
                 .success(function (data) {
                     if (data.result == 'success') {
@@ -91,7 +43,7 @@
                             $state.go('500page');
                             return;
                         } else if (data.error_type == 1) {
-                            alert('用户名或密码错误！')
+                            $scope.sign_in_errorMsg = data.msg;
                         }
                     }
                 })
@@ -100,12 +52,27 @@
                     $state.go('500page');
                     return;
                 })
-        }
+        };
         $scope.doSignUp = function () {
+            var username = $scope.formData.sign_up_username,
+                password = $scope.formData.sign_up_password,
+                repeatPassword = $scope.formData.sign_up_repeatPassword;
+            if (!username || !password) {
+                $scope.sign_up_errorMsg = '用户名或密码不能为空！';
+                return false;
+            }
+            if (password !== repeatPassword) {
+                $scope.sign_up_errorMsg = '两次密码必须一致！';
+                return false;
+            }
             $http({
                 method: 'POST',
                 url: '/SignUp',
-                data: {'username': $scope.formData.sign_up_username, 'password': $scope.formData.sign_up_password}
+                data: {
+                    'username': $scope.formData.sign_up_username,
+                    'password': $scope.formData.sign_up_password,
+                    repeatPassword: repeatPassword
+                }
             })
                 .success(function (data) {
                     if (data.result == 'success') {
@@ -114,10 +81,9 @@
                         if (data.error_type == 0) {
                             $state.go('500page');
                             return;
-                        } else if (data.error_type == 1) {
-                            alert('用户名或密码不能为空！')
-                        } else if (data.error_type == 2) {
-                            alert('用户名已存在！')
+                        } else {
+                            $scope.sign_up_errorMsg = data.msg;
+                            return false;
                         }
                     }
                 })
@@ -126,5 +92,11 @@
                     $state.go('500page');
                     return;
                 })
+        };
+
+        //表单改变时错误消息关闭
+        $scope.formChange = function () {
+            $scope.sign_up_errorMsg = '';
+            $scope.sign_in_errorMsg = '';
         }
-    }])
+    }]);
