@@ -6,4 +6,21 @@
             {{msg}}
         </li>
     </ul>
+    <p>
+        <textarea id="message" rows="3" cols="20"></textarea>
+        <input type="button" class="btn btn-success" value="发送" ng-click="sendMsg()" id="send">
+    </p>
 </div>
+<script>
+    var messages=[];
+    var socket=io();
+    socket.on('message',function(msg){
+        // $scope.$apply(function(){
+        messages.push(msg);
+        //});
+    });
+    $("#send").click(function(){
+        console.log('fa')
+        socket.emit('message',$('#message').val());
+    })
+</script>

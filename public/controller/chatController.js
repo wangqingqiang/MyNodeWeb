@@ -14,12 +14,14 @@
         }
     };
     $scope.setNickName();
-    $scope.messages=[];
-    var socket=io();
-    socket.emit('message',new Date().toLocaleString());
-    socket.on('message',function(msg){
-        $scope.$apply(function(){
-            $scope.messages.push(msg);
-        });
-    })
+    //$scope.messages=[];
+    //var socket=io();
+    //socket.on('message',function(msg){
+    //   // $scope.$apply(function(){
+    //        $scope.messages.push(msg);
+    //    //});
+    //});
+    //$scope.sendMsg=function(){
+    //    socket.emit('message',$('#message').val());
+    //}
 }])
