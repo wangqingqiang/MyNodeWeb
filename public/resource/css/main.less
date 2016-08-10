@@ -4,7 +4,7 @@
   padding: 15px 40px;
   padding-bottom: 50px;
   border-radius: 6px;
-  .title{
+  .title {
     border-bottom: 1px solid hsl(0, 0%, 93%);
   }
   .content {
@@ -121,4 +121,42 @@
     color: red;
   }
 
+}
+
+.chat {
+  height: 100%;
+  .showMsg {
+    padding: 30px 15px;
+    //margin-bottom: 50px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height:400px;
+  }
+  .send {
+    border-top: 1px solid;
+    position:fixed;
+    width:100%;
+    bottom:10px;
+    left:10px;
+    background: rgba(100,100,100,100);
+  }
+  .media-object {
+    width: 35px;
+    height: 35px;
+  }
+  .message {
+    background-color: #eee;
+  }
+  .me.media-right {
+    float: right;
+    text-align: right;
+  }
+  .me.media-body {
+    text-align: right;
+  }
+  textarea {
+    resize: none;
+    vertical-align: bottom;
+    width: 80%;
+  }
 }

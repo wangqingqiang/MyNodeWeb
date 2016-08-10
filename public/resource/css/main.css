@@ -121,3 +121,39 @@
   font-size: 18px;
   color: red;
 }
+.chat {
+  height: 100%;
+}
+.chat .showMsg {
+  padding: 30px 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  height: 400px;
+}
+.chat .send {
+  border-top: 1px solid;
+  position: fixed;
+  width: 100%;
+  bottom: 10px;
+  left: 10px;
+  background: #646464;
+}
+.chat .media-object {
+  width: 35px;
+  height: 35px;
+}
+.chat .message {
+  background-color: #eee;
+}
+.chat .me.media-right {
+  float: right;
+  text-align: right;
+}
+.chat .me.media-body {
+  text-align: right;
+}
+.chat textarea {
+  resize: none;
+  vertical-align: bottom;
+  width: 80%;
+}
