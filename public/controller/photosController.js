@@ -18,4 +18,4 @@
         $scope.submit = function () {
 
         }
-    }])
+    }]);

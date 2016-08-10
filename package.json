@@ -14,7 +14,8 @@
     "formidable": "^1.0.17",
     "mongodb": "^2.2.4",
     "mongoose": "^4.5.8",
-    "silly-datetime": "^0.1.2"
+    "silly-datetime": "^0.1.2",
+    "socket.io": "^1.4.8"
   },
   "devDependencies": {},
   "scripts": {

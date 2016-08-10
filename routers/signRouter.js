@@ -7,19 +7,6 @@ var User = require('../models/UserModel.js');
 
 function checkIsSignin(req, res, next) {
     if (req.session.signin && req.session.username) {
-        var hour = 3600000*10;//+(1*1000*60*60*8);//一周
-        var username = req.session.username;
-        res.cookie('username', username, {
-            expires: new Date(Date.now() + hour),
-            maxAge: hour,
-            path: '/'
-            //httpOnly: true
-        });
-        req.session.signin = true;
-        req.session.username = username;
-        req.session.cookie.expires = new Date(Date.now() + hour);
-        req.session.cookie.maxAge = hour;
-
         res.json({result: 'success'});
     } else {
         res.json({result: 'fail'});
@@ -50,12 +37,12 @@ function signIn(req, res, next) {
                         res.json({result: 'fail', error_type: 1, msg: '用户名或密码错误！'}); // 1:用户名或者密码错误
                     } else {
                         if (user.password == password) {
-                            var hour = 3600000*10;//1*1000*60*60*24*7;//一周
+                            var hour = 3600000;//1*1000*60*60*24*7;//一周
                             res.cookie('username', username, {
                                 expires: new Date(Date.now() + hour),
                                 maxAge: hour,
                                 path: '/'
-                               // httpOnly: true
+                                // httpOnly: true
 
                             });
 
@@ -108,7 +95,7 @@ function signUp(req, res, next) {
                             if (error) {
                                 res.json({result: 'fail', error_type: 0, msg: '系统错误！'}); // 0:数据库操作错误
                             } else {
-                                var hour = 3600000*10;//+(1*1000*60*60*8);//一周
+                                var hour = 3600000;//+(1*1000*60*60*8);//一周
                                 res.cookie('username', username, {
                                     expires: new Date(Date.now() + hour),
                                     maxAge: hour,
@@ -133,10 +120,10 @@ function signUp(req, res, next) {
     })
 }
 //退出
-function signOut(req,res,next){
-    var hour=-100000000;
-    req.session.username='';
-    req.session.cookie.expires = new Date(Date.now() - hour);
+function signOut(req, res, next) {
+    var hour = -100000000;
+    req.session.username = '';
+    req.session.cookie.expires = new Date(Date.now() + hour);
     req.session.cookie.maxAge = hour;
     res.cookie('username', '', {
         expires: new Date(Date.now() + hour),

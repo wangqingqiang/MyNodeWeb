@@ -1,4 +1,4 @@
-;angular.module('app.Router', ['ui.router', 'app.photos.router', 'app.job.router', 'app.sign.router','app.Controller'])
+;angular.module('app.Router', ['ui.router', 'app.photos.router', 'app.job.router', 'app.sign.router','app.chatRoom.router','app.Controller'])
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) { //不需要在这里注入引用的模块的service、controller，否则报错
         $urlRouterProvider.when("", "/");
         $urlRouterProvider.when("/index", "/");
@@ -29,4 +29,4 @@
                     }
                 }
             })
-    }])
+    }]);

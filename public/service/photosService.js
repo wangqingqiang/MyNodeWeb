@@ -1,7 +1,7 @@
 /**
  * Created by wqq on 2016/8/5.
  */
-var photosModel = angular.module('app.photos.service', [])
+angular.module('app.photos.service', [])
     .service('photosService', ['$http', function ($http) {
         this.getAllAlbums = function () {
             return $http({
@@ -12,7 +12,7 @@ var photosModel = angular.module('app.photos.service', [])
         this.getPhotosByAlbumName = function (albumName) {
             return $http({
                 method: 'GET',
-                url: '/getPhotosByAlbumName?albumName='+albumName,
+                url: '/getPhotosByAlbumName?albumName=' + albumName,
             })
         }
-    }])
+    }]);

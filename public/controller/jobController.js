@@ -41,4 +41,4 @@
                 $scope.jobSearch(1);
             }
         }
-    }])
+    }]);

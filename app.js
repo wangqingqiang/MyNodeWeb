@@ -5,7 +5,10 @@ var express=require('express');
 var ejs=require('ejs');
 var router=require('./routers/router.js');
 var session=require('express-session');
+
 var app=express();
+var http=require('http').Server(app);
+var io=require('socket.io')(http);
 
 app.use(session({
     secret: 'keyboard cat',
@@ -25,5 +28,12 @@ router(app);
 //注意此处不是app.use，app.use不是精确匹配，它可以匹配到书写的路由后面的子路由，
 // 例如app.use(/admin,callback)可以匹配到 /admin/adminlist/adminid等
 
+io.on('connection',function(socket){
+    console.log('一个客户端连接');
+    socket.on('message',(msg)=>{
+        console.log(msg);
+        io.emit('message',msg);
+    })
+})
 
-app.listen(process.env.PORT || 5050)
+http.listen(process.env.PORT || 5050)
