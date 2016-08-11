@@ -27,12 +27,24 @@ router(app);
 // 路由前面都是没有'.'的，否则匹配不上，
 //注意此处不是app.use，app.use不是精确匹配，它可以匹配到书写的路由后面的子路由，
 // 例如app.use(/admin,callback)可以匹配到 /admin/adminlist/adminid等
-
+var customs=[];
+var sockets=[];
 io.on('connection',function(socket){
-    console.log('一个客户端连接');
+    sockets.push(socket);
+    socket.on('addUser',(user)=>{
+        customs.push(user);
+        io.emit('addUser',customs);
+
+    });
     socket.on('message',(msg)=>{
-        console.log(msg);
         io.emit('message',msg);
+    });
+    socket.on('disconnect',()=>{
+        var index=sockets.indexOf(socket);
+        sockets.splice(index,1);
+       var user= customs.splice(index,1);
+        io.emit('delUser',{customs:customs,user:user[0]});
+
     })
 })
 

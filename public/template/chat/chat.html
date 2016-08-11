@@ -1,25 +1,30 @@
 <!--<div class="container chat col-lg-6 col-md-6 col-sm-8 col-lg-offset-3 col-md-offset-3 col-sm-offset-2">-->
 <div class="chat">
-    这是一个聊天室</br>
-    欢迎，<span ng-bind="nickName"></span>
     <div class="showMsg">
+        <span ng-bind="'欢迎，'+nickName+'，当前'+users.length+'人在线'"></span>
         <ul>
             <div class="media" ng-repeat="message in messages track by $index">
-                <div class="media-right" ng-class="{me:message.uid==uid}">
-                    <a href="#">
-                        <img class="media-object" src="http://img5.imgtn.bdimg.com/it/u=3052403058,1801998453&fm=21&gp=0.jpg">
-                    </a>
+                <div ng-if="message.type!='server'">
+                    <div class="media-right" ng-class="{me:message.uid==uid}">
+                        <a href="#">
+                            <img class="media-object"
+                                 src="http://img5.imgtn.bdimg.com/it/u=3052403058,1801998453&fm=21&gp=0.jpg">
+                        </a>
+                    </div>
+                    <div class="media-body" ng-class="{me:message.uid==uid}">
+                        <h4 class="media-heading">{{message.nickName}}</h4>
+                        <span class="message">{{message.msg}}</span>
+                    </div>
                 </div>
-                <div class="media-body" ng-class="{me:message.uid==uid}">
-                    <h4 class="media-heading">{{message.nickName}}</h4>
-                    <span class="message">{{message.msg}}</span>
+                <div ng-if="message.type=='server'">
+                    <li class="serverMsg">{{message.msg}}</li>
                 </div>
             </div>
         </ul>
     </div>
 
     <div class="send">
-        <textarea id="message" rows="3" cols="20" ng-model="messageContent" ng-keydown="keyDown()"></textarea>
+        <textarea id="message" rows="3" cols="20" ng-model="messageContent" ng-keydown="keyUp()"></textarea>
         <input type="button" class="btn btn-success" value="发送" ng-click="sendMsg()" id="send">
     </div>
 </div>

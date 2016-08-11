@@ -126,11 +126,13 @@
 .chat {
   height: 100%;
   .showMsg {
-    padding: 30px 15px;
-    //margin-bottom: 50px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    height:400px;
+    width:100%;
+    padding: 10px 15px;
+    position: fixed;
+    top:50px;
+    bottom:70px;
+    overflow:auto;
+    overflow-x:hidden;
   }
   .send {
     border-top: 1px solid;
@@ -138,7 +140,6 @@
     width:100%;
     bottom:10px;
     left:10px;
-    background: rgba(100,100,100,100);
   }
   .media-object {
     width: 35px;
@@ -158,5 +159,9 @@
     resize: none;
     vertical-align: bottom;
     width: 80%;
+  }
+  .serverMsg{
+    text-align: center;
+    font-size:12px;
   }
 }
