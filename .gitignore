@@ -3,7 +3,7 @@
 # $ git add .gitignore
 # $ git commit -am 'ignore dir forever'
 
-node_modules/
+/node_modules/
 
 .idea/
 
