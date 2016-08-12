@@ -6,13 +6,13 @@
             <div class="media" ng-repeat="message in messages track by $index">
                 <div ng-if="message.type!='server'">
                     <div class="media-right" ng-class="{me:message.uid==uid}">
-                        <a href="#">
+                        <a>
                             <img class="media-object"
-                                 src="http://img5.imgtn.bdimg.com/it/u=3052403058,1801998453&fm=21&gp=0.jpg">
+                                 src="/static/resource/imgs/chat/head.jpg">
                         </a>
                     </div>
                     <div class="media-body" ng-class="{me:message.uid==uid}">
-                        <h4 class="media-heading">{{message.nickName}}</h4>
+                        <h6 class="media-heading">{{message.nickName}}</h6>
                         <span class="message">{{message.msg}}</span>
                     </div>
                 </div>
