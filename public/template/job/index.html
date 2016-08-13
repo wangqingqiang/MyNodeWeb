@@ -2,7 +2,7 @@
     <div class="search-wrapper">
         <div id="searchBar" class="search-bar">
             <div class="input-wrapper">
-                <input type="text" id="keyword"  maxlength="16" placeholder="搜索职位、公司或地点" value=""
+                <input type="text" id="keyword"  maxlength="16" placeholder="搜索职位、公司或地点" ng-model="keyword"
                        ng-keyup="keyup()">
                 <input type="button" id="submit" value="搜索" ng-click="jobSearch(1)">
             </div>
@@ -10,14 +10,14 @@
                 <div class="form-group">
                     <label for="city" class="col-sm-2 col-md-1 col-lg-1 control-label">城市：</label>
                     <div class="col-sm-3 col-md-3 col-lg-2">
-                        <select class="form-control" name="city" id="city">
+                        <select class="form-control" name="city" id="city" ng-model="city">
                             <option value="">不限</option>
                             <option ng-repeat="city in citys">{{city}}</option>
                         </select>
                     </div>
                     <label for="yx" class="col-sm-2 col-md-1 col-lg-1 control-label">月薪：</label>
                     <div class="col-sm-3 col-md-3 col-lg-2">
-                        <select class="form-control" name="yx" id="yx">
+                        <select class="form-control" name="yx" id="yx"  ng-model="yx">
                             <option value="">不限</option>
                             <option ng-repeat="salary in salarys">{{salary}}</option>
                         </select>
@@ -33,7 +33,7 @@
                     <div class="position ">
                         <div class="t clearfix">
                             <h4>
-                                <a href="http://www.lagou.com/jobs/{{job.positionId}}.html" target="_blank">{{job.positionName}}
+                                <a href="http://www.lagou.com/jobs/{{job.positionId}}.html" target="_blank">{{job.positionName|limitTo:20}}
                                     <span>[{{job.businessZones[0]||job.district||job.city}}]</span></a>
                                 <span>{{job.createTime|limitTo:10}}</span>
                             </h4>
@@ -76,4 +76,7 @@
             </li>
         </ul>
     </div>
+</div>
+<div class="container col-md-10 col-sm-10 col-lg-9 col-md-offset-1 col-lg-offset-1" ng-if="jobs.length>0">
+    <nav pager page-option="pageOption" search="jobSearch"></nav>
 </div>

@@ -1,1 +1,1 @@
-var app=angular.module('myApp',['app.Router']);
+var app=angular.module('myApp',['app.Router','app.Pager']);

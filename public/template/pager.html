@@ -1,0 +1,27 @@
+<nav>
+    <ul class="pagination">
+        <li ng-class="{disabled:pageOption.currentPage<=1}" ng-click="searchPage(pageOption.currentPage-1)">
+            <a aria-label="Previous">
+                <span aria-hidden="true">上一页</span>
+            </a>
+        </li>
+        <li ng-show="beginPage>1" ng-click="searchPage(1)">
+            <a>1</a>
+        </li>
+        <li ng-show="beginPage>2">
+            <span>...</span>
+        </li>
+        <li ng-repeat="page in pages" ng-class="{active:page==pageOption.currentPage}" ng-click="searchPage(page)"><a>{{page}}</a></li>
+        <li ng-show="endPage<totalPages-1">
+            <span>...</span>
+        </li>
+        <li ng-show="endPage<totalPages" ng-click="searchPage(totalPages)">
+            <a>{{totalPages}}</a>
+        </li>
+        <li ng-class="{disabled:pageOption.currentPage>=totalPages}" ng-click="searchPage(pageOption.currentPage+1)">
+            <a  aria-label="Next">
+                <span aria-hidden="true">下一页</span>
+            </a>
+        </li>
+    </ul>
+</nav>

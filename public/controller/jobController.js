@@ -7,11 +7,20 @@
         $scope.salarys = jobService.getSalary();
 
         $scope.jobs = [];
+        $scope.pageOption = {
+            totalCounts: 100,
+            pageSize: 10,
+            showPages: 5,
+            currentPage: 1
+        }
+        $scope.keyword='';
+        $scope.city='';
+        $scope.yx='';
 
         $scope.jobSearch = function (pageIndex) {
-            var yx = angular.element(document.querySelector("#yx")).val();
-            var city = angular.element(document.querySelector("#city")).val();
-            var positionName = angular.element(document.querySelector("#keyword")).val();
+            var yx =$scope.yx;
+            var city = $scope.city;
+            var positionName =$scope.keyword;
             $http({
                 method: 'POST',
                 url: '/jobSearch',
@@ -26,6 +35,14 @@
                 data = JSON.parse(data);
                 //$scope.$apply(function(){
                 $scope.jobs = data.content.positionResult.result;
+                $scope.pageOption.currentPage=pageIndex;
+                $scope.pageOption.totalCounts=data.content.positionResult.totalCount;
+                //$scope.pageOption = {
+                //    totalCounts: data.content.positionResult.totalCount,
+                //    pageSize: data.content.pageSize,
+                //    showPages: 5,
+                //    currentPage: pageIndex
+                //}
                 // })
             }).error(
                 function (data) {
@@ -41,4 +58,5 @@
                 $scope.jobSearch(1);
             }
         }
+
     }]);
