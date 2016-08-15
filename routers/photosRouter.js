@@ -25,7 +25,7 @@ function getPhotosByAlbumName(req,res,next){
 }
 
 function getPhotoByPath(req,res,next){
-    var pathname='/Upload/Album/'+req.params.albumName+'/'+req.params.id;
+    var pathname='/upload/Album/'+req.params.albumName+'/'+req.params.id;
 
     var options = {
         root: './',
@@ -51,7 +51,7 @@ function getPhotoByPath(req,res,next){
 function updatePhoto (req,res,next){
 
     var option={
-        uploadDir:'./Upload/.temp',
+        uploadDir:'./upload/.temp',
         keepExtensions : true,
         maxFieldsSize : 2 * 1024 * 1024 //文件最大值，单位B，即使上传的文件大于此值，下面form.parse方法也不会报错，只是不会上传文件
     };

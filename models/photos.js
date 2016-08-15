@@ -107,7 +107,7 @@ function updatePhoto(req,option,callback){
                                 })
                             }
                             else {
-                                fs.rename('./' + img.path, `./Upload/Album/${album}/${common.createTimeStamp() + img.name}`, (error)=> {
+                                fs.rename('./' + img.path, `./upload/Album/${album}/${common.createTimeStamp() + img.name}`, (error)=> {
                                     if (error) {
                                         error.__type = 0;
                                         callback(error, null);
@@ -146,7 +146,7 @@ function updatePhoto(req,option,callback){
                         })
                     }
                     else {
-                        fs.rename('./' + img.path, `./Upload/Album/${album}/${common.createTimeStamp() + img.name}`, (error)=> {
+                        fs.rename('./' + img.path, `./upload/Album/${album}/${common.createTimeStamp() + img.name}`, (error)=> {
                             if (error) {
                                 error.__type = 0;
                                 callback(error, null);
