@@ -2,7 +2,7 @@
     .config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) { //不需要在这里注入引用的模块的service、controller，否则报错
         $urlRouterProvider.when("", "/");
         $urlRouterProvider.when("/index", "/");
-        $urlRouterProvider.otherwise('/404error');
+        //$urlRouterProvider.otherwise('/404error');
         $stateProvider
             .state('index', {
                 url: '/',
