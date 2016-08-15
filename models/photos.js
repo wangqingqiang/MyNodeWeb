@@ -38,7 +38,7 @@ function getAllAlbums(callback) {
     })
 }
 function getPhotosByAlbumName(albumName,callback){
-    var albumPath = `./Upload/Album/${albumName}`;
+    var albumPath = `./upload/Album/${albumName}`;
     var photos = [];
 
     fs.readdir(albumPath, (error, files)=> {
